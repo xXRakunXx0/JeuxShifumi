@@ -12,12 +12,30 @@ let signes = [
     ["ciseau"],
 ];
 
+let comence = true
+
+function Jouer(){
+   // si le jeu est commencé : 
+   if(comence === true){
+        comparerReponses(BotFaitSonChoix(), JoeurFaitSonChoix())
+        let encore = confirm("voulez vous continuer ?")
+        if(encore === true){
+             Jouer()
+        }else{
+            comence = false
+        }
+   }
+   
+   //sinon le jeu est arreté
+}
+Jouer()
+
 
 
 
 
 function JoeurFaitSonChoix() {
-    let ReponseDuJoueur = prompt("Choisie ton signe")
+    let ReponseDuJoueur = prompt("Choisie entre Pierre, Feuille, Ciseau")
     
     return ReponseDuJoueur;
 
@@ -64,4 +82,4 @@ function comparerReponses(ReponseDuBot, ReponseDuJoueur) {
         alert ("le bot a gagné")
     }
 }
-    comparerReponses(BotFaitSonChoix(), JoeurFaitSonChoix())
+    
