@@ -14,8 +14,11 @@ let signes = [
 
 
 
+
+
 function JoeurFaitSonChoix() {
     let ReponseDuJoueur = prompt("Choisie ton signe")
+    
     return ReponseDuJoueur;
 
 }
