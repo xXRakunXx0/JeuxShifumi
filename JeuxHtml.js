@@ -1,10 +1,16 @@
 // Choisie ton signe ou ( Ecrire ).
-// Valider ton choix .
+// On clique sur une image de main : 
+// on stocke le symbole choisi par le jeur
 // La Partie commence .
 // Le bot fait son choix .
 // Les deux joueur rélève le choix qui son fait. (De base la phrase ces : Dire au bot le choix qui la fait .)
 // Si le signe du bot est (pierre) et le mien et (feuille) il perd .
 // Si le signe du bot est (ciseau) et le mien (feuil) il gagne . 
+
+
+
+
+
 
 let signes = [
     ["pierre"],
@@ -14,32 +20,24 @@ let signes = [
 
 let comence = true
 
-function Jouer(){
-   // si le jeu est commencé : 
-   if(comence === true){
-        comparerReponses(BotFaitSonChoix(), JoeurFaitSonChoix())
-        let encore = confirm("voulez vous continuer ?")
-        if(encore === true){
-             Jouer()
-        }else{
-            comence = false
-        }
-   }
-   
-   //sinon le jeu est arreté
-}
-Jouer()
 
 
+let images = document.querySelectorAll("#Jeux img")
+console.log(images)
 
-
-
-function JoeurFaitSonChoix() {
-    let ReponseDuJoueur = prompt("Choisie entre Pierre, Feuille, Ciseau")
+images.forEach(image=>{
+    image.addEventListener("click",()=>{
+        // j'execute ce code au clic sur l'image
+        // image c'est l'image sur laquelle j'ai cliqué
+        console.log(image.id)
+        // on fait joueur l'ordi
+       let ordi = BotFaitSonChoix()
+        // on compare les 2
+        comparerReponses(ordi,image.id)
+        // on affiche qui a gagné !
+    })
     
-    return ReponseDuJoueur;
-
-}
+})
 
 
 
